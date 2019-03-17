@@ -8,3 +8,5 @@ env:
 
 script:
   - set -o pipefail && xcodebuild test -enableCodeCoverage YES -project PodDemo.xcodeproj -scheme PodDemo -sdk $TEST_SDK -destination "platform=iOS Simulator,OS=$OS,name=$NAME" ONLY_ACTIVE_ARCH=YES
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
